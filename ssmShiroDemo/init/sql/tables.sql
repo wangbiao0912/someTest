@@ -3,6 +3,7 @@ SQLyog 企业版 - MySQL GUI v7.14
 MySQL - 5.6.16-log : Database - 
 *********************************************************************
 */
+use myshiro_new
 
 /*表结构插入*/
 DROP TABLE IF EXISTS `u_permission`;

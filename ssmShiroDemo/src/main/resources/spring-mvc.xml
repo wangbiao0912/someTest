@@ -16,7 +16,7 @@
 
 
 	<!-- 自动扫描(自动注入) -->
-	<context:component-scan base-package="com.sojson.*.controller;com.sojson.*.*.controller"/>
+	<context:component-scan base-package="com.ssm.controller;com.ssm.*.*.controller;com.ssm.*.controller;"/>
 
  	<mvc:annotation-driven  /><!-- cache-period="315360000" -->
 	<mvc:resources mapping="/images/**" location="/images/" />
@@ -27,8 +27,8 @@
 	
 	<!-- 自动扫描 标签 -->
 	<context:component-scan base-package="com.sojson.*.*.tag;com.sojson.*.tag" />
-	<bean name="api" class="com.sojson.core.tags.APITemplateModel"></bean>
-	<bean name="springContextUtil" class="com.sojson.common.utils.SpringContextUtil" scope="singleton"></bean>
+	<bean name="api" class="com.project.core.tags.APITemplateModel"></bean>
+	<bean name="springContextUtil" class="com.project.common.utils.SpringContextUtil" scope="singleton"></bean>
 	
 	<!-- 这个一定得有，注意了，如果其他配置也有需要这个，已经配置了，那不必了 -->
 	<mvc:annotation-driven  />
