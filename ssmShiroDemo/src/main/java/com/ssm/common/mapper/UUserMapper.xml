@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.sojson.common.dao.UUserMapper" >
-  <resultMap id="BaseResultMap" type="com.sojson.common.model.UUser" >
+<mapper namespace="com.ssm.common.dao.UUserMapper" >
+  <resultMap id="BaseResultMap" type="com.ssm.common.model.UUser" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="nickname" property="nickname" jdbcType="VARCHAR" />
     <result column="email" property="email" jdbcType="VARCHAR" />
@@ -43,7 +43,7 @@
   
   
   <!-- 用户权限分配的分页查询 -->
-  <select id="findUserAndRole" resultType="com.sojson.permission.bo.UserRoleAllocationBo">
+  <select id="findUserAndRole" resultType="com.ssm.permission.bo.UserRoleAllocationBo">
   	select u.id,u.nickname,u.email,u.create_time,u.last_login_time,u.status ,group_concat(ur.name) roleNames,group_concat(ur.id)roleIds from
 	 u_user u
 	left join u_user_role uur on uur.uid = u.id
@@ -58,7 +58,7 @@
       </where>
 	group by u.id 
   </select>
-  <select id="selectRoleByUserId" resultType="com.sojson.permission.bo.URoleBo">
+  <select id="selectRoleByUserId" resultType="com.ssm.permission.bo.URoleBo">
   		<!-- 
 		select ur.id,ur.name,ur.type,ifnull(uu.id,0)marker,uu.id userId from u_role ur
 		left join u_user_role uur on uur.rid = ur.id
@@ -94,7 +94,7 @@
     delete from u_user
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.sojson.common.model.UUser" >
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.ssm.common.model.UUser" >
     insert into u_user (id, nickname, email, 
       pswd, create_time, last_login_time,status
       )
@@ -102,7 +102,7 @@
       #{pswd,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{lastLoginTime,jdbcType=TIMESTAMP},#{status,jdbcType=BIGINT}
       )
   </insert>
-  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="com.sojson.common.model.UUser" >
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="com.ssm.common.model.UUser" >
     insert into u_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -151,7 +151,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.sojson.common.model.UUser" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.ssm.common.model.UUser" >
     update u_user
     <set >
       <if test="nickname != null" >
@@ -175,7 +175,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.sojson.common.model.UUser" >
+  <update id="updateByPrimaryKey" parameterType="com.ssm.common.model.UUser" >
     update u_user
     set nickname = #{nickname,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},

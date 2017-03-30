@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.sojson.common.dao.URoleMapper" >
-  <resultMap id="BaseResultMap" type="com.sojson.common.model.URole" >
+<mapper namespace="com.ssm.common.dao.URoleMapper" >
+  <resultMap id="BaseResultMap" type="com.ssm.common.model.URole" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="type" property="type" jdbcType="VARCHAR" />
@@ -62,7 +62,7 @@
   </select>
   
   <!-- 选择角色给用户 ，checkbox 列表-->
-  <select id="selectRoleByUserId" resultType="com.sojson.permission.bo.URoleBo">
+  <select id="selectRoleByUserId" resultType="com.ssm.permission.bo.URoleBo">
   		<!-- 
 		select ur.id,ur.name,ur.type,ifnull(uu.id,0)marker from u_role ur
 		left join u_user_role uur on uur.uid = ur.id
@@ -74,7 +74,7 @@
   </select>
   
   <!-- 权限分配的分页查询 -->
-  <select id="findRoleAndPermission" resultType="com.sojson.permission.bo.RolePermissionAllocationBo">
+  <select id="findRoleAndPermission" resultType="com.ssm.permission.bo.RolePermissionAllocationBo">
   	select ur.id,ur.type,ur.name,group_concat(up.name) permissionNames,group_concat(up.id)permissionIds from 
 	u_role ur 
 	left join u_role_permission urp on urp.rid = ur.id
@@ -94,8 +94,8 @@
   <!-- Mybatis 一对多 Demo  begin -->
   
   <!-- 查询用户全部的role & permission -->
-  <resultMap id="findNowAllPermission_resultMap" extends="BaseResultMap" type="com.sojson.common.model.URole" >
-  	<collection property="permissions" javaType="com.sojson.common.model.UPermission">
+  <resultMap id="findNowAllPermission_resultMap" extends="BaseResultMap" type="com.ssm.common.model.URole" >
+  	<collection property="permissions" javaType="com.ssm.common.model.UPermission">
   	 	<id column="pid" property="id" jdbcType="BIGINT" />
     	<result column="pname" property="name" jdbcType="VARCHAR" />
     	<result column="url" property="url" jdbcType="VARCHAR" />
@@ -123,13 +123,13 @@
     delete from u_role
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.sojson.common.model.URole" >
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.ssm.common.model.URole" >
     insert into u_role (id, name, type
       )
     values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="com.sojson.common.model.URole" >
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="com.ssm.common.model.URole" >
     insert into u_role
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -154,7 +154,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.sojson.common.model.URole" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.ssm.common.model.URole" >
     update u_role
     <set >
       <if test="name != null" >
@@ -166,7 +166,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.sojson.common.model.URole" >
+  <update id="updateByPrimaryKey" parameterType="com.ssm.common.model.URole" >
     update u_role
     set name = #{name,jdbcType=VARCHAR},
       type = #{type,jdbcType=VARCHAR}

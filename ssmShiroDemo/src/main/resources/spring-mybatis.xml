@@ -12,8 +12,8 @@
 			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd"
 			>
 	<!-- 自动扫描(自动注入) -->
-	<context:component-scan base-package="com.sojson.*.service;com.sojson.*.*.service"/>
-	<context:component-scan base-package="com.sojson.common.timer"/>
+	<context:component-scan base-package="com.ssm.*.service;com.ssm.*.*.service"/>
+	<!-- <context:component-scan base-package="com.ssm.common.timer"/> -->
 	
 	<bean id="log-filter" class="com.alibaba.druid.filter.logging.Log4jFilter">
     	<property name="resultSetLogEnabled" value="true" />
@@ -56,7 +56,8 @@
 		<property name="configLocation" value="classpath:mybatis-config.xml"/>
 		<property name="mapperLocations"  >
 			<list>
-				<value>classpath:com/sojson/common/mapper/*.xml</value>
+			
+				<value>classpath:com/ssm/common/mapper/*.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -64,16 +65,17 @@
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactory" />
 	</bean>
-	<bean id="baseMybatisDao" class="com.sojson.core.mybatis.BaseMybatisDao" >
+	<bean id="baseMybatisDao" class="com.mybatis.core.mybatis.BaseMybatisDao" >
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>	
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.sojson.common.dao" />
+		<property name="basePackage" value="com.ssm.common.dao" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
 	 <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 	     <property name="dataSource" ref="dataSource" />
 	 </bean>
+	 <!-- 事务管理    声明式事务-->
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="publish*" />
@@ -86,16 +88,13 @@
 			<tx:method name="load*" />
 			<tx:method name="init*" />
 
-
-
-
 			<tx:method name="*"  read-only="true"/>
 		</tx:attributes>
 	</tx:advice>
  	<!-- AOP配置--> 
 	<aop:config>
 		<aop:pointcut id="myPointcut"
-			expression="execution(public * com.sojson.*.service.impl.*.*(..))" />
+			expression="execution(public * com.*.*.service.impl.*.*(..))" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="myPointcut" />
 	</aop:config>
 <!--	<aop:config>-->

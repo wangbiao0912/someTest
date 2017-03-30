@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.sojson.common.dao.UPermissionMapper" >
-  <resultMap id="BaseResultMap" type="com.sojson.common.model.UPermission" >
+<mapper namespace="com.ssm.common.dao.UPermissionMapper" >
+  <resultMap id="BaseResultMap" type="com.ssm.common.model.UPermission" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="url" property="url" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
@@ -38,12 +38,12 @@
   	<include refid="where_all" />
   </select>
   <!-- 根据角色获取权限，marker:0,没有权限，marker：非0(和up.id)一致表示有权限。 
-  	com.sojson.permission.bo.UPermissionBo中的这个方法是校验权限
+  	com.ssm.permission.bo.UPermissionBo中的这个方法是校验权限
   	public boolean isCheck(){
 		return StringUtils.equals(roleId,marker);
 	}
   -->
-  <select id="selectPermissionById" resultType="com.sojson.permission.bo.UPermissionBo">
+  <select id="selectPermissionById" resultType="com.ssm.permission.bo.UPermissionBo">
   	<!--原来的语句，应该是没错误。
   		有同学说有错误，请给出mysql版本号。
   		但是发现一个问题（我没尝试），在mysql 5.7版本中，没有结果集。故做了一下修改。
@@ -74,11 +74,11 @@
     delete from u_permission
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.sojson.common.model.UPermission" >
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.ssm.common.model.UPermission" >
     insert into u_permission (id, url, name)
     values (#{id,jdbcType=BIGINT}, #{url,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="com.sojson.common.model.UPermission" >
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="com.ssm.common.model.UPermission" >
     insert into u_permission
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -103,7 +103,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.sojson.common.model.UPermission" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.ssm.common.model.UPermission" >
     update u_permission
     <set >
       <if test="url != null" >
@@ -115,7 +115,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.sojson.common.model.UPermission" >
+  <update id="updateByPrimaryKey" parameterType="com.ssm.common.model.UPermission" >
     update u_permission
     set url = #{url,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR}
