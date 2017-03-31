@@ -10,9 +10,9 @@ if [ "$1" = "" ] ;then
 elif ["$1" != "" ];then
 	echo "正在准备提交请等待。。。。"
 	echo  '提交记录日志为：    $1'	
-	read
 fi
-
+echo "请按任意键继续提交"
+read
 git add .
 git commit -m "$1"
 git push origin master
