@@ -10,7 +10,8 @@ if [ "$1" = "" ] ;then
 elif ["$1" != "" ];then
 	echo "正在准备提交请等待。。。。"
 	echo  '提交记录日志为：    $1'
-	pause
+	echo "Press any key to continue!"
+	char=`get_char`
 fi
 
 git add .
