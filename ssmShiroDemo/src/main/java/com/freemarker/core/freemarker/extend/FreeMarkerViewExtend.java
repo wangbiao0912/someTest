@@ -20,6 +20,7 @@ public class FreeMarkerViewExtend extends FreeMarkerView {
 		} catch (Exception e) {
 			LoggerUtils.fmtError(FreeMarkerViewExtend.class,e, "FreeMarkerViewExtend 加载父类出现异常。请检查。");
 		}
+		System.out.println("freemaker  存储值用的工具类 。。。。。。");
 		model.put(Constant.CONTEXT_PATH, request.getContextPath());
 		model.putAll(Ferrmarker.initMap);
 		UUser token = TokenManager.getToken();
