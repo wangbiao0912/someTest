@@ -160,9 +160,9 @@
 	<!-- 拦截器会直接在这里控制 -->
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
 		<property name="securityManager" ref="securityManager" />
-		<property name="loginUrl" value="/login.jsp" />
+		<property name="loginUrl" value="/user/login.jsp" />
 		<!--	TODO 待提取	-->
-		<property name="successUrl" value="/" />
+		<property name="successUrl" value="/u/login.action" />
 		<property name="unauthorizedUrl" value="/?login" />
 		
 <!--	初始配置，现采用自定义	-->

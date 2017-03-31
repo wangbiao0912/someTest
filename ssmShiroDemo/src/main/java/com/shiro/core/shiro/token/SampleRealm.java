@@ -58,6 +58,12 @@ public class SampleRealm extends AuthorizingRealm {
 			throw new AccountException("帐号或密码不正确！");
 		/**
 		 * 如果用户的status为禁用。那么就抛出<code>DisabledAccountException</code>
+		 * DisabledAccountException（帐号被禁用）
+			LockedAccountException（帐号被锁定）
+			ExcessiveAttemptsException（登录失败次数过多）
+			ExpiredCredentialsException（凭证过期）等
+		 * 
+		 * 
 		 */
 		}else if(UUser._0.equals(user.getStatus())){
 			throw new DisabledAccountException("帐号已经禁止登录！");

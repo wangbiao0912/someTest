@@ -56,7 +56,7 @@ public class UtilPath {
 	 * @return path
 	 */
 	public static String getRootPath(){
-		return getWEB_INF().replace("WEB-INF/", "");
+		return getWEB_INF().replace("/", "");
 	}
 	/**
 	 * 获取输出HTML目录

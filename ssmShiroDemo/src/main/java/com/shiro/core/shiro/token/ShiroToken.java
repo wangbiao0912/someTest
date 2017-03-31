@@ -1,24 +1,16 @@
 package com.shiro.core.shiro.token;
 
 import org.apache.shiro.authc.UsernamePasswordToken;
+
 /**
  * 
- * 开发公司：SOJSON在线工具 <p>
- * 版权所有：© www.sojson.com<p>
- * 博客地址：http://www.sojson.com/blog/  <p>
- * <p>
- * 
- * Shiro token
- * 
- * <p>
- * 
- * 区分　责任人　日期　　　　说明<br/>
- * 创建　周柏成　2016年6月2日 　<br/>
- *
- * @author zhou-baicheng
- * @email  so@sojson.com
- * @version 1.0,2016年6月2日 <br/>
- * 
+ * 项目名称：ssmShiroDemo   
+ * 类名称：ShiroToken   
+ * 类描述：   
+ *		Shiro token
+ * 创建人：wangbiao  
+ * 创建时间：2017年3月31日 下午4:38:06   
+ * @version
  */
 public class ShiroToken extends UsernamePasswordToken  implements java.io.Serializable{
 	

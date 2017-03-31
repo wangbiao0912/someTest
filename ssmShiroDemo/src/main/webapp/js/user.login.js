@@ -4,7 +4,7 @@ var baseUrl = $("script[baseUrl]").attr('baseUrl');
 /**退出*/
 function logout(){
 	var load = layer.load();
-	$.getJSON(baseUrl + '/u/logout.shtml',{},function(result){
+	$.getJSON(baseUrl + '/u/logout.action',{},function(result){
 		layer.close(load);
 		if(result && result.status == 200){
 			$(".qqlogin").html('').next('ul').remove();

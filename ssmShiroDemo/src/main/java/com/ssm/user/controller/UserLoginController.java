@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import net.sf.json.JSONObject;
 
+import org.apache.shiro.authc.AccountException;
 import org.apache.shiro.authc.DisabledAccountException;
 import org.apache.shiro.web.util.SavedRequest;
 import org.apache.shiro.web.util.WebUtils;
@@ -52,7 +53,7 @@ public class UserLoginController extends BaseController {
 	@RequestMapping(value="login",method=RequestMethod.GET)
 	public ModelAndView login(){
 		
-		return new ModelAndView("login");
+		return new ModelAndView("user/login");
 	}
 	/**
 	 * 注册跳转
@@ -133,8 +134,9 @@ public class UserLoginController extends BaseController {
 			LoggerUtils.fmtDebug(getClass(), "获取登录之前的URL:[%s]",url);
 			//如果登录之前没有地址，那么就跳转到首页。
 			if(StringUtils.isBlank(url)){
-				url = request.getContextPath() + "/user/index.shtml";
+				url = request.getContextPath() + "index.jsp";
 			}
+			System.out.println(url+">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 			//跳转地址
 			resultMap.put("back_url", url);
 		/**
@@ -143,7 +145,13 @@ public class UserLoginController extends BaseController {
 		} catch (DisabledAccountException e) {
 			resultMap.put("status", 500);
 			resultMap.put("message", "帐号已经禁用。");
-		} catch (Exception e) {
+		} 
+		//有下面这个方法   这个可以忽略
+		catch (AccountException e1) {
+			resultMap.put("status", 500);
+			resultMap.put("message", "帐号或密码错误");
+		} 
+		catch (Exception e) {
 			resultMap.put("status", 500);
 			resultMap.put("message", "帐号或密码错误");
 		}

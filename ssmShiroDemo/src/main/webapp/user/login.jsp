@@ -71,12 +71,12 @@
 			    		if(result && result.status != 200){
 			    			layer.msg(result.message,function(){});
 			    			$('.password').val('');
-			    			alert("我是来测试的。、。。。。。。");
 			    			return;
 			    		}else{
 			    			layer.msg('登录成功！');
 			    			setTimeout(function(){
 			    				//登录返回
+			    				alert(""+result.back_url);
 				    			window.location.href= result.back_url || "${basePath}/";
 			    			},1000)
 			    		}
