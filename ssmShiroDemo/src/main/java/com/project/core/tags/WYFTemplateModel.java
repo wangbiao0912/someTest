@@ -4,7 +4,7 @@ package com.project.core.tags;
 import java.io.IOException;
 import java.util.Map;
 
-import com.project.core.freemarker.utils.FreemarkerTagUtil;
+import com.freemarker.core.freemarker.utils.FreemarkerTagUtil;
 
 import freemarker.core.Environment;
 import freemarker.template.TemplateDirectiveBody;

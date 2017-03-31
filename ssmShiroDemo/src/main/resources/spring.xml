@@ -20,7 +20,7 @@
 		<property name="locations">
 			<list>
 				<value>classpath:jdbc.properties</value>
-				<value>classpath:config.properties</value>
+			<!-- 	<value>classpath:config.properties</value> -->
 				<value>classpath:shiro-config.properties</value>
 			</list>
 		</property>

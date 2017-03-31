@@ -3,9 +3,6 @@ package com.ssm.common.model;
 import java.io.Serializable;
 import java.util.Date;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import net.sf.json.JSONObject;
 
 /**
@@ -18,9 +15,9 @@ import net.sf.json.JSONObject;
  * 创建时间：2017年3月30日 下午2:35:54   
  * @version
  */
-@Data
+/*@Data
 @NoArgsConstructor
-@AllArgsConstructor
+@AllArgsConstructor*/
 public class UUser implements Serializable{
 	private static final long serialVersionUID = 1L;
 	//0:禁止登录
@@ -41,8 +38,74 @@ public class UUser implements Serializable{
     /**1:有效，0:禁止登录*/
     private Long status;
     
+    public UUser() {}
+    public UUser(UUser user) {
+		this.id = user.getId();
+		this.nickname = user.getNickname();
+		this.email = user.getEmail();
+		this.pswd = user.getPswd();
+		this.createTime = user.getCreateTime();
+		this.lastLoginTime = user.getLastLoginTime();
+	}
+
+	public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public Long getStatus() {
+		return status;
+	}
+	public void setStatus(Long status) {
+		this.status = status;
+	}
+	public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPswd() {
+        return pswd;
+    }
+
+    public void setPswd(String pswd) {
+        this.pswd = pswd;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getLastLoginTime() {
+        return lastLoginTime;
+    }
+
+    public void setLastLoginTime(Date lastLoginTime) {
+        this.lastLoginTime = lastLoginTime;
+    }
     
     public String toString(){
     	return JSONObject.fromObject(this).toString();
     }
+
+	
+
 }

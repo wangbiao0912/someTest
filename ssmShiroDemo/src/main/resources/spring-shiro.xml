@@ -157,9 +157,10 @@
     <bean id="simple" class="com.shiro.core.shiro.filter.SimpleAuthFilter"/>
 	
 	
+	<!-- 拦截器会直接在这里控制 -->
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
 		<property name="securityManager" ref="securityManager" />
-		<property name="loginUrl" value="/u/login.action" />
+		<property name="loginUrl" value="/login.jsp" />
 		<!--	TODO 待提取	-->
 		<property name="successUrl" value="/" />
 		<property name="unauthorizedUrl" value="/?login" />

@@ -52,7 +52,7 @@ public class UserLoginController extends BaseController {
 	@RequestMapping(value="login",method=RequestMethod.GET)
 	public ModelAndView login(){
 		
-		return new ModelAndView("user/login");
+		return new ModelAndView("login");
 	}
 	/**
 	 * 注册跳转
