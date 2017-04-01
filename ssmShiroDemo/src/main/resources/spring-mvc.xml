@@ -109,10 +109,10 @@
 
 
 	<!-- 配置freeMarker 拓展-->
-	<!-- <bean id="freemarkerConfig"
-		class="com.sojson.core.freemarker.extend.FreeMarkerConfigExtend">
+	<bean id="freemarkerConfig"
+		class="com.freemarker.core.freemarker.extend.FreeMarkerConfigExtend">
 		<property name="templateLoaderPath">
-			<value>/WEB-INF/ftl/</value>
+			<value>/freemarker/</value>
 		</property>
 		<property name="freemarkerVariables">
 			<map>
@@ -124,7 +124,8 @@
 			<value>utf-8</value>
 		</property>
 		<property name="freemarkerSettings">
-			<props>315360000
+			<props><!-- 315360000 -->
+			
 					<prop key="template_update_delay">0</prop>
 					<prop key="defaultEncoding">UTF-8</prop>
 					<prop key="url_escaping_charset">UTF-8</prop>
@@ -137,13 +138,13 @@
 				<prop key="number_format">#</prop>
 				<prop key="whitespace_stripping">true</prop>
 				<prop key="auto_import">
-					/common/config/top.ftl as _top,
+				<!-- 	/common/config/top.ftl as _top,
 					/common/config/left.ftl as _left,
-					/common/config/menu.ftl as _menu
+					/common/config/menu.ftl as _menu -->
 				</prop>
 			</props>
 		</property>
-	</bean> -->
+	</bean>
 	<bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape"/>
 	<!--===============通用视图解析器 end===============-->
 	

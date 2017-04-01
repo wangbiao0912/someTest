@@ -61,7 +61,6 @@
 		<property name="shiroSessionRepository" ref="jedisShiroSessionRepository"/>
 		 <property name="customShiroSessionDAO" ref="customShiroSessionDAO"/>
 	</bean>
- 
 	<!-- 会话验证调度器 -->
 	<bean id="sessionValidationScheduler" class="org.apache.shiro.session.mgt.ExecutorServiceSessionValidationScheduler">
 		 <!-- 间隔多少时间检查，不配置是60分钟 -->
@@ -132,6 +131,8 @@
 	   <!-- 是否删除无效的，默认也是开启 -->
 	  <property name="deleteInvalidSessions" value="true"/>
 		<!-- 会话Cookie模板 -->
+		
+		
 	   <property name="sessionIdCookie" ref="sessionIdCookie"/>
 	</bean>
 	<!-- session 创建、删除、查询 -->
