@@ -40,7 +40,7 @@ import freemarker.template.TemplateModelException;
  * @version
  */
 @SuppressWarnings({  "unchecked"})
-public class Ferrmarker {
+public class Ferrmarker {;
 	//HTML输出目录
 	protected static String HTML_PATH = UtilPath.getHTMLPath();
 	//FTL输入目录
