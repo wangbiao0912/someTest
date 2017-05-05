@@ -12,20 +12,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="064caae7-8998-4a07-9921-f884f17c530e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ActivitiDemo/src/main/resources/bmpb/helloworld.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/someTest.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ActivitiDemo/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ActivitiDemo/.idea/artifacts/ActivitiDemo_war.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ActivitiDemo/.idea/artifacts/ActivitiDemo_war_exploded.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ActivitiDemo/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ActivitiDemo/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ActivitiDemo/src/main/resources/bmpb/firstActiviti.bpmn" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ActivitiDemo/src/main/resources/bmpb/helloworld.bpmn" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ActivitiDemo/src/main/test/FirstActiviti.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ActivitiDemo/src/main/resources/activiti.cfg.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ActivitiDemo/src/main/resources/log4j.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivitiDemo/.idea/artifacts/ActivitiDemo_war.xml" afterPath="$PROJECT_DIR$/ActivitiDemo/.idea/artifacts/ActivitiDemo_war.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivitiDemo/.idea/artifacts/ActivitiDemo_war_exploded.xml" afterPath="$PROJECT_DIR$/ActivitiDemo/.idea/artifacts/ActivitiDemo_war_exploded.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivitiDemo/ActivitiDemo.iml" afterPath="$PROJECT_DIR$/ActivitiDemo/ActivitiDemo.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ActivitiDemo/pom.xml" afterPath="$PROJECT_DIR$/ActivitiDemo/pom.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -41,10 +34,10 @@
         <entry file="file://$PROJECT_DIR$/ActivitiDemo/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
-              <caret line="70" column="1" lean-forward="false" selection-start-line="70" selection-start-column="1" selection-end-line="70" selection-end-column="1" />
+              <caret line="74" column="1" lean-forward="false" selection-start-line="74" selection-start-column="1" selection-end-line="74" selection-end-column="1" />
               <folding>
-                <marker date="1493978322205" expanded="true" signature="456:469" ph="..." />
-                <marker date="1493978322205" expanded="true" signature="2292:2300" ph="..." />
+                <marker date="1493979083085" expanded="true" signature="542:555" ph="..." />
+                <marker date="1493979083085" expanded="true" signature="2378:2386" ph="..." />
               </folding>
             </state>
           </provider>
@@ -727,10 +720,10 @@
     <entry file="file://$PROJECT_DIR$/ActivitiDemo/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="70" column="1" lean-forward="false" selection-start-line="70" selection-start-column="1" selection-end-line="70" selection-end-column="1" />
+          <caret line="74" column="1" lean-forward="false" selection-start-line="74" selection-start-column="1" selection-end-line="74" selection-end-column="1" />
           <folding>
-            <marker date="1493978322205" expanded="true" signature="456:469" ph="..." />
-            <marker date="1493978322205" expanded="true" signature="2292:2300" ph="..." />
+            <marker date="1493979083085" expanded="true" signature="542:555" ph="..." />
+            <marker date="1493979083085" expanded="true" signature="2378:2386" ph="..." />
           </folding>
         </state>
       </provider>

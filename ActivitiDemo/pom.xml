@@ -8,6 +8,10 @@
   <name>ActivitiDemo Maven Webapp</name>
   <url>http://maven.apache.org</url>
 
+    <properties>
+      <activiti-version>5.22.0</activiti-version>
+    </properties>
+
   <dependencies>
     <dependency>
       <groupId>org.activiti</groupId>
