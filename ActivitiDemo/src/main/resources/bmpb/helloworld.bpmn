@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://www.activiti.org/test" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.w3.org/1999/XPath" id="m1493977608408" name="" targetNamespace="http://www.activiti.org/test" typeLanguage="http://www.w3.org/2001/XMLSchema">
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://www.activiti.org/test" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.w3.org/1999/XPath" id="m1494164523287" name="" targetNamespace="http://www.activiti.org/test" typeLanguage="http://www.w3.org/2001/XMLSchema">
   <process id="helloworld" isClosed="false" isExecutable="true" name="helloworldProcess" processType="None">
     <startEvent id="startevent1" name="Start"/>
     <endEvent id="endevent1" name="End"/>
-    <userTask activiti:assignee="寮犱�?" activiti:exclusive="true" id="usertask1" name="鎻愪氦鐢宠"/>
-    <userTask activiti:assignee="鏉庡�?" activiti:exclusive="true" id="usertask2" name="瀹℃壒銆愰儴闂ㄧ粡鐞嗐��?"/>
-    <userTask activiti:assignee="鐜嬩�?" activiti:exclusive="true" id="usertask3" name="瀹℃壒銆愭�荤粡鐞嗐��"/>
+    <userTask activiti:assignee="张三" activiti:exclusive="true" id="usertask1" name="提交申请"/>
+    <userTask activiti:assignee="李四" activiti:exclusive="true" id="usertask2" name="审批【部门经理】"/>
+    <userTask activiti:assignee="王五" activiti:exclusive="true" id="usertask3" name="审批【总经理】"/>
     <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="usertask1"/>
     <sequenceFlow id="flow2" sourceRef="usertask1" targetRef="usertask2"/>
     <sequenceFlow id="flow3" sourceRef="usertask2" targetRef="usertask3"/>
