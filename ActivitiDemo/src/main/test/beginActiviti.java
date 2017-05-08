@@ -16,8 +16,8 @@ public class beginActiviti {
         // 引擎配置
         ProcessEngineConfiguration pec=ProcessEngineConfiguration.createStandaloneProcessEngineConfiguration();
         pec.setJdbcDriver("com.mysql.jdbc.Driver");
-        //processEngineConfiguration.setJdbcUrl("jdbc:mysql://localhost:3306/itcast0711activiti?useUnicode=true&characterEncoding=utf8");
-        pec.setJdbcUrl("jdbc:mysql://localhost:3306/activiti");
+        pec.setJdbcUrl("jdbc:mysql://localhost:3306/activiti?useUnicode=true&characterEncoding=utf8");
+        //pec.setJdbcUrl("jdbc:mysql://localhost:3306/activiti");
         pec.setJdbcUsername("root");
         pec.setJdbcPassword("123456");
 

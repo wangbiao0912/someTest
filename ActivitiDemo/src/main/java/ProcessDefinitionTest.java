@@ -31,8 +31,8 @@ public class ProcessDefinitionTest {
 	                 .createDeployment()  // 创建部署  
 	              /*   .addClasspathResource("bpmn/helloworld.bpmn")  // 加载资源文件
 	                 .addClasspathResource("bpmn/helloworld.png")   // 加载资源文件*/
-				.addClasspathResource("bmpb/helloworld.bpmn")//从classpath的资源中加载，一次只能加载一个文件
-				.addClasspathResource("bmpb/helloworld.png")//从classpath的资源中加载，一次只能加载一个文件
+				.addClasspathResource("bpmn/helloworld.bpmn")//从classpath的资源中加载，一次只能加载一个文件
+				.addClasspathResource("bpmn/helloworld.png")//从classpath的资源中加载，一次只能加载一个文件
 	                 .name("流程定义1")  // 流程名称  
 	                 .deploy(); // 部署  
 	    System.out.println("流程部署ID:-->"+deployment.getId());  
@@ -46,7 +46,7 @@ public class ProcessDefinitionTest {
     public void deployWithZip(){  
         InputStream inputStream=this.getClass()  // 获取当前class对象  
                             .getClassLoader()   // 获取类加载器  
-                            .getResourceAsStream("bmpb/helloworld.zip"); // 获取指定文件资源流
+                            .getResourceAsStream("bpmn/helloworld.zip"); // 获取指定文件资源流
         ZipInputStream zipInputStream=new ZipInputStream(inputStream); // 实例化zip输入流对象
         // 获取部署对象  
         Deployment deployment=processEngine.getRepositoryService() // 部署Service  

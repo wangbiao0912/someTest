@@ -27,8 +27,8 @@ public class ProcessDefinitionTest {
 		Deployment deployment = processEngine.getRepositoryService()//与流程定义和部署对象相关的Service
 						.createDeployment()//创建一个部署对象
 						.name("流程定义")//添加部署的名称
-						.addClasspathResource("dbmp/helloworld.bpmn")//从classpath的资源中加载，一次只能加载一个文件
-						.addClasspathResource("dbmp/helloworld.png")//从classpath的资源中加载，一次只能加载一个文件
+						.addClasspathResource("bpmn/test.bpmn")//从classpath的资源中加载，一次只能加载一个文件
+						.addClasspathResource("bpmn/test.png")//从classpath的资源中加载，一次只能加载一个文件
 						.deploy();//完成部署
 		System.out.println("部署ID："+deployment.getId());//
 		System.out.println("部署名称："+deployment.getName());//
@@ -37,7 +37,7 @@ public class ProcessDefinitionTest {
 	/**部署流程定义（从zip）*/
 	@Test
 	public void deploymentProcessDefinition_zip(){
-		InputStream in = this.getClass().getClassLoader().getResourceAsStream("dbmp/helloworld.zip");
+		InputStream in = this.getClass().getClassLoader().getResourceAsStream("bpmn/HelloWorld.zip");
 		ZipInputStream zipInputStream = new ZipInputStream(in);
 		Deployment deployment = processEngine.getRepositoryService()//与流程定义和部署对象相关的Service
 						.createDeployment()//创建一个部署对象
@@ -86,7 +86,7 @@ public class ProcessDefinitionTest {
 	@Test
 	public void deleteProcessDefinition(){
 		//使用部署ID，完成删除
-		String deploymentId = "601";
+		String deploymentId = "15001";
 		/**
 		 * 不带级联的删除
 		 *    只能删除没有启动的流程，如果流程启动，就会抛出异常
@@ -108,7 +108,7 @@ public class ProcessDefinitionTest {
 	@Test
 	public void viewPic() throws IOException{
 		/**将生成图片放到文件夹下*/
-		String deploymentId = "801";
+		String deploymentId = "2501";
 		//获取图片资源名称
 		List<String> list = processEngine.getRepositoryService()//
 						.getDeploymentResourceNames(deploymentId);
@@ -126,9 +126,9 @@ public class ProcessDefinitionTest {
 		//获取图片的输入流
 		InputStream in = processEngine.getRepositoryService()//
 						.getResourceAsStream(deploymentId, resourceName);
-		
+		System.out.print(resourceName+"图片名：、、、、");
 		//将图片生成到D盘的目录下
-		File file = new File("/Users/wangbiao/temp"+resourceName);
+		File file = new File("C://temp//"+resourceName);
 		//将输入流的图片写到D盘下
 		FileUtils.copyInputStreamToFile(in, file);
 	}

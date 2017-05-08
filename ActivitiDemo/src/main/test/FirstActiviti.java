@@ -22,8 +22,8 @@ public class FirstActiviti
                 .createDeployment()//创建一个部署对象
                 .name("helloworld入门程序")//添加部署的名称
 
-                .addClasspathResource("bmpb/helloworld.bpmn")//从classpath的资源中加载，一次只能加载一个文件
-                .addClasspathResource("bmpb/helloworld.png")//从classpath的资源中加载，一次只能加载一个文件
+                .addClasspathResource("bpmn/test.bpmn")//从classpath的资源中加载，一次只能加载一个文件
+                .addClasspathResource("bpmn/test.png")//从classpath的资源中加载，一次只能加载一个文件
                 .deploy();//完成部署
         System.out.println("部署ID："+deployment.getId());//1
         System.out.println("部署名称："+deployment.getName());//helloworld入门程序
@@ -33,7 +33,7 @@ public class FirstActiviti
     @Test
     public void startProcessInstance(){
         //流程定义的key
-        String processDefinitionKey = "helloworld";
+        String processDefinitionKey = "hello";
         ProcessInstance pi = processEngine.getRuntimeService()//与正在执行的流程实例和执行对象相关的Service
                 .startProcessInstanceByKey(processDefinitionKey);//使用流程定义的key启动流程实例，key对应helloworld.bpmn文件中id的属性值，使用key值启动，默认是按照最新版本的流程定义启动
         System.out.println("流程实例ID:"+pi.getId());//流程实例ID    101
@@ -67,7 +67,7 @@ public class FirstActiviti
     @Test
     public void completeMyPersonalTask(){
         //任务ID
-        String taskId = "20001";
+        String taskId = "5004";
         processEngine.getTaskService()//与正在执行的任务管理相关的Service
                 .complete(taskId);
         System.out.println("完成任务：任务ID："+taskId);

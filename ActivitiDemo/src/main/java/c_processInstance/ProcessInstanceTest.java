@@ -20,7 +20,7 @@ public class ProcessInstanceTest {
 	/**1.部署流程定义（从zip）*/
 	@Test
 	public void deploymentProcessDefinition_zip(){
-		InputStream in = this.getClass().getClassLoader().getResourceAsStream("diagrams/helloworld.zip");
+		InputStream in = this.getClass().getClassLoader().getResourceAsStream("bdmp/helloworld.zip");
 		ZipInputStream zipInputStream = new ZipInputStream(in);
 		Deployment deployment = processEngine.getRepositoryService()//与流程定义和部署对象相关的Service
 						.createDeployment()//创建一个部署对象
@@ -40,7 +40,7 @@ public class ProcessInstanceTest {
 	/**3.查询当前人的个人任务*/
 	@Test
 	public void findMyPersonalTask(){
-		String assignee = "张三";
+		String assignee = "李四";
 		List<Task> list = processEngine.getTaskService()//与正在执行的任务管理相关的Service
 						.createTaskQuery()//创建任务查询对象
 						/**查询条件（where部分）*/
@@ -74,7 +74,7 @@ public class ProcessInstanceTest {
 	@Test
 	public void completeMyPersonalTask(){
 		//任务ID
-		String taskId = "904";
+		String taskId = "7502";
 		processEngine.getTaskService()//与正在执行的任务管理相关的Service
 					.complete(taskId);
 		System.out.println("完成任务：任务ID："+taskId);
@@ -84,7 +84,7 @@ public class ProcessInstanceTest {
 	/**查询流程状态（判断流程正在执行，还是结束）*/
 	@Test
 	public void isProcessEnd(){
-		String processInstanceId = "1001";
+		String processInstanceId = "10001";
 		ProcessInstance pi = processEngine.getRuntimeService()//表示正在执行的流程实例和执行对象
 						.createProcessInstanceQuery()//创建流程实例查询
 						.processInstanceId(processInstanceId)//使用流程实例ID查询
@@ -101,7 +101,7 @@ public class ProcessInstanceTest {
 	/**查询历史任务（后面讲）*/
 	@Test
 	public void findHistoryTask(){
-		String taskAssignee = "张三";
+		String taskAssignee = "李四";
 		List<HistoricTaskInstance> list = processEngine.getHistoryService()//与历史数据（历史表）相关的Service
 						.createHistoricTaskInstanceQuery()//创建历史任务实例查询
 						.taskAssignee(taskAssignee)//指定历史任务的办理人
@@ -119,7 +119,7 @@ public class ProcessInstanceTest {
 	/**查询历史流程实例（后面讲）*/
 	@Test
 	public void findHistoryProcessInstance(){
-		String processInstanceId = "1001";
+		String processInstanceId = "10001";
 		HistoricProcessInstance hpi = processEngine.getHistoryService()//与历史数据（历史表）相关的Service
 						.createHistoricProcessInstanceQuery()//创建历史流程实例查询
 						.processInstanceId(processInstanceId)//使用流程实例ID查询
