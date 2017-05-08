@@ -18,7 +18,7 @@ public class HistoryQueryTest {
 	/**查询历史流程实例--act_hi_procinst*/
 	@Test
 	public void findHistoryProcessInstance(){
-		String processInstanceId = "1701";
+		String processInstanceId = "22501";
 		HistoricProcessInstance hpi = processEngine.getHistoryService()//与历史数据（历史表）相关的Service
 						.createHistoricProcessInstanceQuery()//创建历史流程实例查询
 						.processInstanceId(processInstanceId)//使用流程实例ID查询
@@ -30,7 +30,7 @@ public class HistoryQueryTest {
 	/**查询历史活动*/
 	@Test
 	public void findHistoryActiviti(){
-		String processInstanceId = "1701";
+		String processInstanceId = "22501";
 		List<HistoricActivityInstance> list = processEngine.getHistoryService()//
 						.createHistoricActivityInstanceQuery()//创建历史活动实例的查询
 						.processInstanceId(processInstanceId)//
@@ -47,7 +47,7 @@ public class HistoryQueryTest {
 	/**查询历史任务*/
 	@Test
 	public void findHistoryTask(){
-		String processInstanceId = "2101";
+		String processInstanceId = "22501";
 		List<HistoricTaskInstance> list = processEngine.getHistoryService()//与历史数据（历史表）相关的Service
 						.createHistoricTaskInstanceQuery()//创建历史任务实例查询
 						.processInstanceId(processInstanceId)//
@@ -64,7 +64,7 @@ public class HistoryQueryTest {
 	/**查询历史流程变量*/
 	@Test
 	public void findHistoryProcessVariables(){
-		String processInstanceId = "2101";
+		String processInstanceId = "22501";
 		List<HistoricVariableInstance> list = processEngine.getHistoryService()//
 						.createHistoricVariableInstanceQuery()//创建一个历史的流程变量查询对象
 						.processInstanceId(processInstanceId)//

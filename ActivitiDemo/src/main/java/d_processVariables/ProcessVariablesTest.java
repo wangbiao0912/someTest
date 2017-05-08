@@ -51,7 +51,7 @@ public class ProcessVariablesTest {
 		/**与任务（正在执行）*/
 		TaskService taskService = processEngine.getTaskService();
 		//任务ID
-		String taskId = "1704";  //act_ru_task表里id
+		String taskId = "7502";  //act_ru_task表里id
 		/**一：设置流程变量，使用基本数据类型*/
 //		taskService.setVariableLocal(taskId, "请假天数", 5);//与任务ID绑定
 //		taskService.setVariable(taskId, "请假日期", new Date());
@@ -66,7 +66,7 @@ public class ProcessVariablesTest {
 		 *      同时实现Serializable 
 		 * */
 		Person p = new Person();
-		p.setId(20);
+		p.setId(21);
 		p.setName("翠花");
 		taskService.setVariable(taskId, "人员信息(添加固定版本)", p);
 		
@@ -79,7 +79,7 @@ public class ProcessVariablesTest {
 		/**与任务（正在执行）*/
 		TaskService taskService = processEngine.getTaskService();
 		//任务ID
-		String taskId = "1704";
+		String taskId = "7502";
 		/**一：获取流程变量，使用基本数据类型*/
 //		Integer days = (Integer) taskService.getVariable(taskId, "请假天数");
 //		Date date = (Date) taskService.getVariable(taskId, "请假日期");
