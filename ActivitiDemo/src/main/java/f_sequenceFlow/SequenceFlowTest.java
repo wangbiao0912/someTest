@@ -8,6 +8,8 @@ import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;
 import org.junit.Test;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
@@ -20,13 +22,27 @@ public class SequenceFlowTest {
 	/**部署流程定义（从inputStream）*/
 	@Test
 	public void deploymentProcessDefinition_inputStream(){
-		InputStream inputStreamBpmn = this.getClass().getResourceAsStream("sequenceFlow.bpmn");
-		InputStream inputStreamPng = this.getClass().getResourceAsStream("sequenceFlow.png");
+		//InputStream inputStreamBpmn = this.getClass().getResourceAsStream("f/sequenceFlow.bpmn");
+		System.out.println(this.getClass().getResource("").getPath());
+		//System.out.println(inputStreamBpmn+">>>>>"+ this.getClass().getResourceAsStream("sequenceFlow.png")+">>>"+this.getClass().getResourceAsStream("sequenceFlow.bpmn"));
+		//InputStream inputStreamPng = this.getClass().getResourceAsStream("sequenceFlow.png");
+		String bpmnPath = "f//sequenceFlow.bpmn";
+		String bpmnPathpng = "f//sequenceFlow.png";
+		InputStream inputStreamPng=null;
+		InputStream pngfileInputStream=null;
+		try {
+			pngfileInputStream = new FileInputStream(bpmnPath);
+			inputStreamPng = new FileInputStream(bpmnPathpng);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 		Deployment deployment = processEngine.getRepositoryService()//与流程定义和部署对象相关的Service
 						.createDeployment()//创建一个部署对象
-						.name("连线")//添加部署的名称
-						.addInputStream("sequenceFlow.bpmn", inputStreamBpmn)//
-						.addInputStream("sequenceFlow.png", inputStreamPng)//
+						.name("连线1")//添加部署的名称
+//						.addInputStream("sequenceFlow.bpmn", pngfileInputStream)//
+//						.addInputStream("sequenceFlow.png", inputStreamPng)//
+				.addClasspathResource("f//sequenceFlow.bpmn")//从classpath的资源中加载，一次只能加载一个文件
+				.addClasspathResource("f//sequenceFlow.png")//从classpath的资源中加载，一次只能加载一个文件
 						.deploy();//完成部署
 		System.out.println("部署ID："+deployment.getId());//
 		System.out.println("部署名称："+deployment.getName());//
