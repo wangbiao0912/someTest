@@ -22,8 +22,10 @@ public class ParallelGateWayTest {
 		Deployment deployment = processEngine.getRepositoryService()//与流程定义和部署对象相关的Service
 						.createDeployment()//创建一个部署对象
 						.name("并行网关")//添加部署的名称
-						.addInputStream("parallelGateWay.bpmn", inputStreamBpmn)//
-						.addInputStream("parallelGateWay.png", inputStreamPng)//
+//						.addInputStream("parallelGateWay.bpmn", inputStreamBpmn)//
+//						.addInputStream("parallelGateWay.png", inputStreamPng)//
+						.addClasspathResource("h/parallelGateWay.bpmn")
+						.addClasspathResource("h/parallelGateWay.png")
 						.deploy();//完成部署
 		System.out.println("部署ID："+deployment.getId());//
 		System.out.println("部署名称："+deployment.getName());//
@@ -77,7 +79,7 @@ public class ParallelGateWayTest {
 	@Test
 	public void completeMyPersonalTask(){
 		//任务ID
-		String taskId = "4302";
+		String taskId = "47510";
 		processEngine.getTaskService()//与正在执行的任务管理相关的Service
 					.complete(taskId);
 		System.out.println("完成任务：任务ID："+taskId);

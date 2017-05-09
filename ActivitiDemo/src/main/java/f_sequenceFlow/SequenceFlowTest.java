@@ -26,8 +26,8 @@ public class SequenceFlowTest {
 		System.out.println(this.getClass().getResource("").getPath());
 		//System.out.println(inputStreamBpmn+">>>>>"+ this.getClass().getResourceAsStream("sequenceFlow.png")+">>>"+this.getClass().getResourceAsStream("sequenceFlow.bpmn"));
 		//InputStream inputStreamPng = this.getClass().getResourceAsStream("sequenceFlow.png");
-		String bpmnPath = "f//sequenceFlow.bpmn";
-		String bpmnPathpng = "f//sequenceFlow.png";
+		String bpmnPath = "f/sequenceFlow.bpmn";
+		String bpmnPathpng = "f/sequenceFlow.png";
 		InputStream inputStreamPng=null;
 		InputStream pngfileInputStream=null;
 		try {
@@ -41,13 +41,13 @@ public class SequenceFlowTest {
 						.name("连线1")//添加部署的名称
 //						.addInputStream("sequenceFlow.bpmn", pngfileInputStream)//
 //						.addInputStream("sequenceFlow.png", inputStreamPng)//
-				.addClasspathResource("f//sequenceFlow.bpmn")//从classpath的资源中加载，一次只能加载一个文件
-				.addClasspathResource("f//sequenceFlow.png")//从classpath的资源中加载，一次只能加载一个文件
+				.addClasspathResource("f/sequenceFlow.bpmn")//从classpath的资源中加载，一次只能加载一个文件
+				.addClasspathResource("f/sequenceFlow.png")//从classpath的资源中加载，一次只能加载一个文件
 						.deploy();//完成部署
 		System.out.println("部署ID："+deployment.getId());//
 		System.out.println("部署名称："+deployment.getName());//
 	}
-	//部署ID：1901
+	//部署ID：32501
 //	部署名称：连线
 	/**启动流程实例*/
 	@Test
