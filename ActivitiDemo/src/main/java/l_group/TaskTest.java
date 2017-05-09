@@ -22,16 +22,24 @@ public class TaskTest {
 	/**部署流程定义（从inputStream）*/
 	@Test
 	public void deploymentProcessDefinition_inputStream(){
-		InputStream inputStreamBpmn = this.getClass().getResourceAsStream("task.bpmn");
-		InputStream inputStreamPng = this.getClass().getResourceAsStream("task.png");
+//		InputStream inputStreamBpmn = this.getClass().getResourceAsStream("task.bpmn");
+//		InputStream inputStreamPng = this.getClass().getResourceAsStream("task.png");
 		Deployment deployment = processEngine.getRepositoryService()//与流程定义和部署对象相关的Service
 						.createDeployment()//创建一个部署对象
 						.name("任务")//添加部署的名称
-						.addInputStream("task.bpmn", inputStreamBpmn)//
-						.addInputStream("task.png", inputStreamPng)//
+//						.addInputStream("task.bpmn", inputStreamBpmn)//
+//						.addInputStream("task.png", inputStreamPng)//
+				.addClasspathResource("l/task.bpmn")
+				.addClasspathResource("l/task.png")
 						.deploy();//完成部署
 		System.out.println("部署ID："+deployment.getId());//
 		System.out.println("部署名称："+deployment.getName());//
+		//实例方法测试  、、、、
+		/**
+		 *
+
+
+		 */
 	}
 	
 	/**启动流程实例*/
@@ -105,7 +113,7 @@ public class TaskTest {
 	@Test
 	public void completeMyPersonalTask(){
 		//任务ID
-		String taskId = "6905";
+		String taskId = "2505";
 		processEngine.getTaskService()//与正在执行的任务管理相关的Service
 					.complete(taskId);
 		System.out.println("完成任务：任务ID："+taskId);
@@ -116,7 +124,7 @@ public class TaskTest {
 	@Test
 	public void findRunPersonTask(){
 		//任务ID
-		String taskId = "6204";
+		String taskId = "10005";
 		List<IdentityLink> list = processEngine.getTaskService()//
 					.getIdentityLinksForTask(taskId);
 		if(list!=null && list.size()>0){

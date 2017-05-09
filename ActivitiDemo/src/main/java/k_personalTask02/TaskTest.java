@@ -9,7 +9,9 @@ import org.activiti.engine.task.Task;
 import org.junit.Test;
 
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class TaskTest {
 
@@ -18,25 +20,31 @@ public class TaskTest {
 	/**部署流程定义（从inputStream）*/
 	@Test
 	public void deploymentProcessDefinition_inputStream(){
-		InputStream inputStreamBpmn = this.getClass().getResourceAsStream("task.bpmn");
-		InputStream inputStreamPng = this.getClass().getResourceAsStream("task.png");
+//		InputStream inputStreamBpmn = this.getClass().getResourceAsStream("task.bpmn");
+//		InputStream inputStreamPng = this.getClass().getResourceAsStream("task.png");
 		Deployment deployment = processEngine.getRepositoryService()//与流程定义和部署对象相关的Service
 						.createDeployment()//创建一个部署对象
 						.name("任务")//添加部署的名称
-						.addInputStream("task.bpmn", inputStreamBpmn)//
-						.addInputStream("task.png", inputStreamPng)//
+//						.addInputStream("task.bpmn", inputStreamBpmn)//
+//						.addInputStream("task.png", inputStreamPng)//
+				.addClasspathResource("k/task.bpmn")
+				.addClasspathResource("k/task.png")
 						.deploy();//完成部署
 		System.out.println("部署ID："+deployment.getId());//
 		System.out.println("部署名称："+deployment.getName());//
 	}
-	
+
+
+
 	/**启动流程实例*/
 	@Test
 	public void startProcessInstance(){
 		//流程定义的key
 		String processDefinitionKey = "task";
+		HashMap<String,Object> hashMap=new HashMap<String,Object>();
+		hashMap.put("userID","王彪Test");
 		ProcessInstance pi = processEngine.getRuntimeService()//与正在执行的流程实例和执行对象相关的Service
-						.startProcessInstanceByKey(processDefinitionKey);//使用流程定义的key启动流程实例，key对应helloworld.bpmn文件中id的属性值，使用key值启动，默认是按照最新版本的流程定义启动
+						.startProcessInstanceByKey(processDefinitionKey,hashMap);//使用流程定义的key启动流程实例，key对应helloworld.bpmn文件中id的属性值，使用key值启动，默认是按照最新版本的流程定义启动
 		System.out.println("流程实例ID:"+pi.getId());//流程实例ID    101
 		System.out.println("流程定义ID:"+pi.getProcessDefinitionId());//流程定义ID   helloworld:1:4
 	}
@@ -44,7 +52,7 @@ public class TaskTest {
 	/**查询当前人的个人任务*/
 	@Test
 	public void findMyPersonalTask(){
-		String assignee = "张翠山";
+		String assignee = "王彪Test";
 		List<Task> list = processEngine.getTaskService()//与正在执行的任务管理相关的Service
 						.createTaskQuery()//创建任务查询对象
 						/**查询条件（where部分）*/
@@ -88,9 +96,9 @@ public class TaskTest {
 	@Test
 	public void setAssigneeTask(){
 		//任务ID
-		String taskId = "5804";
+		String taskId = "102505";
 		//指定的办理人
-		String userId = "张翠山";
+		String userId = "王彪Test大苏打撒旦";
 		processEngine.getTaskService()//
 					.setAssignee(taskId, userId);
 	}

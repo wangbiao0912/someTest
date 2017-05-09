@@ -24,8 +24,8 @@ public class ReceiveTaskTest {
 						.name("接收活动任务")//添加部署的名称
 //						.addInputStream("receiveTask.bpmn", inputStreamBpmn)//
 //						.addInputStream("receiveTask.png", inputStreamPng)//
-						.addClasspathResource("receiveTask.bpmn")
-						.addClasspathResource("receiveTask.png")
+						.addClasspathResource("j/receiveTask.bpmn")
+						.addClasspathResource("j/receiveTask.png")
 						.deploy();//完成部署
 		System.out.println("部署ID："+deployment.getId());//
 		System.out.println("部署名称："+deployment.getName());//
@@ -45,12 +45,12 @@ public class ReceiveTaskTest {
 		Execution execution1 = processEngine.getRuntimeService()//
 						.createExecutionQuery()//创建执行对象查询
 						.processInstanceId(pi.getId())//使用流程实例ID查询
-						.activityId("receivetask1")//当前活动的id，对应receiveTask.bpmn文件中的活动节点id的属性值
+						.activityId("receivetask1")//当前活动的id，对应receiveTask.bpmn文件中的活动节点id的属性值    receivetask1  活动节点Id
 						.singleResult();
 		
 		/**使用流程变量设置当日销售额，用来传递业务参数*/
 		processEngine.getRuntimeService()//
-						.setVariable(execution1.getId(), "汇总当日销售额", 21000);
+						.setVariable(execution1.getId(), "汇总当日销售额", 21002500);
 		
 		/**向后执行一步，如果流程处于等待状态，使得流程继续执行*/
 		processEngine.getRuntimeService()

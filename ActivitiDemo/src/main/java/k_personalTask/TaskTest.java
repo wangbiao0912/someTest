@@ -25,8 +25,10 @@ public class TaskTest {
 		Deployment deployment = processEngine.getRepositoryService()//与流程定义和部署对象相关的Service
 						.createDeployment()//创建一个部署对象
 						.name("任务")//添加部署的名称
-						.addInputStream("task.bpmn", inputStreamBpmn)//
-						.addInputStream("task.png", inputStreamPng)//
+//						.addInputStream("task.bpmn", inputStreamBpmn)//
+//						.addInputStream("task.png", inputStreamPng)//
+				.addClasspathResource("k/task.bpmn")
+				.addClasspathResource("k/task.png")
 						.deploy();//完成部署
 		System.out.println("部署ID："+deployment.getId());//
 		System.out.println("部署名称："+deployment.getName());//
@@ -39,7 +41,7 @@ public class TaskTest {
 		String processDefinitionKey = "task";
 		/**启动流程实例的同时，设置流程变量，使用流程变量用来指定任务的办理人，对应task.pbmn文件中#{userID}*/
 		Map<String, Object> variables = new HashMap<String, Object>();
-		variables.put("userID", "周芷若");
+		variables.put("userID", "王彪1");
 		ProcessInstance pi = processEngine.getRuntimeService()//与正在执行的流程实例和执行对象相关的Service
 						.startProcessInstanceByKey(processDefinitionKey,variables);//使用流程定义的key启动流程实例，key对应helloworld.bpmn文件中id的属性值，使用key值启动，默认是按照最新版本的流程定义启动
 		System.out.println("流程实例ID:"+pi.getId());//流程实例ID    101
@@ -49,7 +51,7 @@ public class TaskTest {
 	/**查询当前人的个人任务*/
 	@Test
 	public void findMyPersonalTask(){
-		String assignee = "周芷若";
+		String assignee = "王彪";
 		List<Task> list = processEngine.getTaskService()//与正在执行的任务管理相关的Service
 						.createTaskQuery()//创建任务查询对象
 						/**查询条件（where部分）*/
@@ -83,7 +85,7 @@ public class TaskTest {
 	@Test
 	public void completeMyPersonalTask(){
 		//任务ID
-		String taskId = "5505";
+		String taskId = "70005";
 		processEngine.getTaskService()//与正在执行的任务管理相关的Service
 					.complete(taskId);
 		System.out.println("完成任务：任务ID："+taskId);
