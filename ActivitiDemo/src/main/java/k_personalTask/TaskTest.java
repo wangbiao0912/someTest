@@ -3,11 +3,17 @@ package k_personalTask;
 
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.ProcessEngines;
+import org.activiti.engine.RepositoryService;
+import org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity;
 import org.activiti.engine.repository.Deployment;
+import org.activiti.engine.repository.ProcessDefinition;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;
+import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
@@ -90,6 +96,72 @@ public class TaskTest {
 					.complete(taskId);
 		System.out.println("完成任务：任务ID："+taskId);
 	}
+
+
+
+	/**查看流程图
+	 * @throws IOException */
+	@Test
+	public void viewPic() throws IOException{
+		/**将生成图片放到文件夹下*/
+		String deploymentId = "22501";
+		//获取图片资源名称
+		List<String> list = processEngine.getRepositoryService()//
+				.getDeploymentResourceNames(deploymentId);
+		//定义图片资源的名称
+		String resourceName = "";
+		if(list!=null && list.size()>0){
+			for(String name:list){
+				if(name.indexOf(".png")>=0){
+					resourceName = name;
+				}
+			}
+		}
+		RepositoryService repositoryService = processEngine
+				.getRepositoryService();
+		ProcessDefinition procDef = repositoryService
+				.createProcessDefinitionQuery().processDefinitionId("22501")
+				.singleResult();
+		String diagramResourceName = procDef.getDiagramResourceName();
+		InputStream in = repositoryService.getResourceAsStream(
+				procDef.getDeploymentId(), diagramResourceName);
+
+		//获取图片的输入流
+//		InputStream in = processEngine.getRepositoryService()//
+//				.getResourceAsStream(deploymentId, resourceName);
+		System.out.print(resourceName+"图片名：、、、、");
+		//将图片生成到D盘的目录下
+		File file = new File("C://temp//"+resourceName);
+		//将输入流的图片写到D盘下
+		FileUtils.copyInputStreamToFile(in, file);
+	}
+
+
+
+	@Test
+	public void viewImage() throws Exception {
+		// 创建仓库服务对对象
+		RepositoryService repositoryService = processEngine.getRepositoryService();
+		// 从仓库中找需要展示的文件
+		String deploymentId = "17501";
+		List<String> names = repositoryService.getDeploymentResourceNames(deploymentId);
+		String imageName = null;
+		for (String name : names) {
+			System.out.println("循环中的内容  "+name);
+			if(name.indexOf(".png")>=0){
+				imageName = name;
+			}
+		}
+		System.out.println("图片名“：：："+imageName);
+		if(imageName!=null){
+//     System.out.println(imageName);
+			File f = new File("C://temp//"+ imageName);
+			// 通过部署ID和文件名称得到文件的输入流
+			InputStream in =  repositoryService.getResourceAsStream(deploymentId, imageName);
+			FileUtils.copyInputStreamToFile(in, f);
+		}
+	}
+
 
 
 }

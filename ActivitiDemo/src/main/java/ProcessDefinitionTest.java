@@ -46,7 +46,7 @@ public class ProcessDefinitionTest {
     public void deployWithZip(){  
         InputStream inputStream=this.getClass()  // 获取当前class对象  
                             .getClassLoader()   // 获取类加载器  
-                            .getResourceAsStream("bpmn/helloworld.zip"); // 获取指定文件资源流
+                            .getResourceAsStream("Desktop.zip"); // 获取指定文件资源流
         ZipInputStream zipInputStream=new ZipInputStream(inputStream); // 实例化zip输入流对象
         // 获取部署对象  
         Deployment deployment=processEngine.getRepositoryService() // 部署Service  
