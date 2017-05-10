@@ -178,6 +178,7 @@ public class WorkflowAction extends ActionSupport implements ModelDriven<Workflo
 		//1：获取任务ID，获取任务对象，使用任务对象获取流程定义ID，查询流程定义对象
 		ProcessDefinition pd = workflowService.findProcessDefinitionByTaskId(taskId);
 		//workflowAction_viewImage?deploymentId=<s:property value='#deploymentId'/>&imageName=<s:property value='#imageName'/>
+		//这两个参数去点击图片的
 		ValueContext.putValueContext("deploymentId", pd.getDeploymentId());
 		ValueContext.putValueContext("imageName", pd.getDiagramResourceName());
 		/**二：查看当前活动，获取当期活动对应的坐标x,y,width,height，将4个值存放到Map<String,Object>中*/
