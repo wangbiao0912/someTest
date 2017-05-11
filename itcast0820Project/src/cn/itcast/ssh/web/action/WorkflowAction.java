@@ -126,7 +126,7 @@ public class WorkflowAction extends ActionSupport implements ModelDriven<Workflo
 		//1：从Session中获取当前用户名
 		String name = SessionContext.get().getName();
 		//2：使用当前用户名查询正在执行的任务表，获取当前任务的集合List<Task>
-		List<Task> list = workflowService.findTaskListByName(name); 
+		List<Task> list = workflowService.findTaskListByName(name);
 		ValueContext.putValueContext("list", list);
 		return "task";
 	}
@@ -141,6 +141,7 @@ public class WorkflowAction extends ActionSupport implements ModelDriven<Workflo
 		String url = workflowService.findTaskFormKeyByTaskId(taskId);
 		url += "?taskId="+taskId;
 		ValueContext.putValueContext("url", url);
+		System.out.println(url+">           >>>>>>>>");
 		return "viewTaskForm";
 	}
 	
@@ -194,6 +195,7 @@ public class WorkflowAction extends ActionSupport implements ModelDriven<Workflo
 		//1：使用请假单ID，查询请假单对象，将对象放置到栈顶，支持表单回显
 		LeaveBill leaveBill = leaveBillService.findLeaveBillById(id);
 		ValueContext.putValueStack(leaveBill);
+		System.out.println(id);
 		//2：使用请假单ID，查询历史的批注信息
 		List<Comment> commentList = workflowService.findCommentByLeaveBillId(id);
 		ValueContext.putValueContext("commentList", commentList);

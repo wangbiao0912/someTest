@@ -56,7 +56,7 @@
             </result>
         	<result name="viewTaskForm" type="redirectAction">
         		<!-- 从LeaveBill.bpmn文件中获取任务节点的url连接 -->
-        		<param name="actionName">/${#url}</param>
+        		<param name="actionName">${#url}</param>
         	</result>
         	<result name="taskForm">WEB-INF/views/workflow/taskForm.jsp</result>
             <result name="viewHisComment">WEB-INF/views/workflow/taskFormHis.jsp</result>

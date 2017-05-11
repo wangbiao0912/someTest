@@ -134,6 +134,5 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="library" name="activiti-bpmn-converter-5.13-sources" level="project" />
   </component>
 </module>

@@ -265,6 +265,8 @@ public class WorkflowServiceImpl implements IWorkflowService {
 		//批注信息
 		String message = workflowBean.getComment();
 		//获取请假单ID
+
+
 		Long id = workflowBean.getId();
 		
 		/**
