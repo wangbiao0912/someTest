@@ -25,8 +25,12 @@
          xmlns="http://java.sun.com/xml/ns/j2ee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+    <context-param>
+        <param-name>javax.faces.CONFIG_FILES</param-name>
+        <param-value>/applicationConsumer.xml</param-value>
+    </context-param>
 
-  <!-- Servlet Filters ================================================ -->
+    <!-- Servlet Filters ================================================ -->
 
   <!--
     - Declare a filter for multipart MIME handling
@@ -101,8 +105,13 @@
     <servlet-class>org.apache.cocoon.servletservice.DispatcherServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
 
-  <!-- URL space mappings ============================================= -->
+    <!-- URL space mappings ============================================= -->
 
   <!--
     - Cocoon handles all the URL space assigned to the webapp using its sitemap.
@@ -114,6 +123,10 @@
     <servlet-name>DispatcherServlet</servlet-name>
     <url-pattern>/*</url-pattern>
   </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
 
 </web-app>
         
