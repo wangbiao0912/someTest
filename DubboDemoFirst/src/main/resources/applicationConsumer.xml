@@ -6,6 +6,7 @@ http://code.alibabatech.com/schema/dubbo    http://code.alibabatech.com/schema/d
     <dubbo:application name="consumer-of-dubbo-demo" />
 
     <dubbo:registry address="zookeeper://127.0.0.1:2181" />
+    <dubbo:protocol name="dubbo" port="20880" />
 
     <!-- 向注册中心订阅服务 -->
     <dubbo:reference id="demoService" interface="com.after00.service.DemoService" />

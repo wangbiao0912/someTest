@@ -9,7 +9,7 @@ import java.io.IOException;
  *  接口启动类
  */
 public class ServerMain {
-    public static void main(String[] args) throws IOException {
+    public static void main1(String[] args) throws IOException {
 
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext( new String[] { "applicationProvider.xml" });
         context.start();
@@ -18,7 +18,7 @@ public class ServerMain {
         context.close();
     }
 
-    public static void main1(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 new String[] { "applicationConsumer.xml" });
         context.start();
