@@ -8,3 +8,7 @@
 *.ear
 target
 /target/
+target/
+/.idea
+.idea
+.idea/
