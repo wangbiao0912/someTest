@@ -159,6 +159,7 @@
     <module>DubboUtils</module>
     <module>DubboDao</module>
     <module>DubboWeb</module>
+    <module>DubboTest</module>
   </modules>
 
 </project>
