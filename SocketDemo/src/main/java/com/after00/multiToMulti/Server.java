@@ -7,6 +7,9 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * 服务端
+ */
 public class  Server extends ServerSocket {
     private static final int SERVER_PORT =2013;
 

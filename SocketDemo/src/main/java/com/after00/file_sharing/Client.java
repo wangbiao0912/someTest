@@ -18,7 +18,7 @@ public class Client extends Socket {
             try {
                 client =new Socket(SERVER_IP, SERVER_PORT);
                 //向服务端传送文件
-                File file =new File("c:/test.doc");
+                File file =new File("c:/test.txt");
                 fis =new FileInputStream(file);
                 dos =new DataOutputStream(client.getOutputStream());
 

@@ -22,7 +22,6 @@ public class SocketClient {
                 BufferedReader sysBuff =new BufferedReader(new InputStreamReader(System.in));
                 printWriter.println(sysBuff.readLine());
                 printWriter.flush();
-
                 result = bufferedReader.readLine();
                 System.out.println("Server say : " + result);
             }
