@@ -39,7 +39,6 @@ public class Server extends ServerSocket {
                     while(true){
                         int read =0;
                         read = dis.read(sendBytes);
-                        System.out.println("文件每行内容：  "+dis.read());
                         if(read == -1)
                             break;
                         transLen += read;
